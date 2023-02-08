@@ -1,22 +1,20 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
-import 'package:unsplash_app/core/utils/dio/dio_wrapper.dart';
+import 'package:unsplash_app/logic/home/data/datasources/home_datasource.dart';
 
-abstract class HomeRemoteDataSource {
-  Future<Response> getListofPhotos();
+
+abstract class HomeRepository {
+  Future<Response> getBookDailySum();
 }
 
-class HomeDataSourceImpl implements HomeRemoteDataSource {
-  final DioWrapper? dioWrapper;
-  BookRemoteDataSourceImpl({this.dioWrapper}) {
-    dioWrapper?.path = '';
-  }
+class HomeRepositoryImpl implements HomeRepository {
+  final HomeDataSource homeDataSource;
+
+  HomeRepositoryImpl(this.homeDataSource);
 
   @override
-  Future<Response> getListofPhotos() async {
-    Response response = await dioWrapper!.get('/photos/?client_id=ab3411e4ac868c2646c0ed488dfd919ef612b04c264f3374c97fff98ed253dc9',);
-    // ab3411e4ac868c2646c0ed488dfd919ef612b04c264f3374c97fff98ed253dc9 = id
-    // u can use like that $id
+  Future<Response> getBookDailySum() async {
+    Response response = await homeDataSource.getListofPhotos();
+
     return response;
   }
 }

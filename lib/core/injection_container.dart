@@ -1,21 +1,25 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:unsplash_app/core/utils/dio/dio_interceptor.dart';
+import 'package:unsplash_app/logic/home/data/datasources/home_datasource.dart';
+import 'package:unsplash_app/logic/home/data/repositories/home_repository.dart';
+
+
+
 var sl = GetIt.instance;
 
 void initGetIt() async {
 
 
-  sl.registerLazySingleton<ProfileDatasource>(
-        () => ProfileDatasourceImpl(dioWrapper: sl()),
+  sl.registerLazySingleton<HomeDataSource>(
+        () => HomeDataSourceImpl(dioWrapper: sl()),
   );
 
-  sl.registerLazySingleton<ProfileRepository>(
-        () => ProfileRepositoryImpl(sl()),
+  sl.registerLazySingleton<HomeRepository>(
+        () => HomeRepositoryImpl(sl()),
   );
 
-  sl.registerFactory<ProfileBloc>(
-        () => ProfileBloc(sl()),
-  );
+  // sl.registerFactory<ProfileBloc>(
+  //       () => ProfileBloc(sl()),
+  // );
 
 }

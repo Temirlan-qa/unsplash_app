@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
-import 'dio_interceptor.dart';
+
 
 class DioWrapper {
   final Dio _dio;
-  final DioInterceptor _dioInterceptor;
 
-  DioWrapper(this._dio, this._dioInterceptor) {
-    _dio.interceptors.add(_dioInterceptor);
+
+  DioWrapper(this._dio) {
   }
 
   String _path = '';
