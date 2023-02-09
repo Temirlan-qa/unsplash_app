@@ -3,7 +3,7 @@ import 'package:unsplash_app/logic/home/data/datasources/home_datasource.dart';
 
 
 abstract class HomeRepository {
-  Future<Response> getBookDailySum();
+  Future<Response> getListofPhotos();
 }
 
 class HomeRepositoryImpl implements HomeRepository {
@@ -12,7 +12,7 @@ class HomeRepositoryImpl implements HomeRepository {
   HomeRepositoryImpl(this.homeDataSource);
 
   @override
-  Future<Response> getBookDailySum() async {
+  Future<Response> getListofPhotos() async {
     Response response = await homeDataSource.getListofPhotos();
 
     return response;
