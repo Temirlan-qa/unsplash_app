@@ -38,7 +38,7 @@ class ListPhotoWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      list[index].title,
+                      "123",
                       textAlign: TextAlign.left,
                       style: const TextStyle(
                         fontSize: 20.0,
