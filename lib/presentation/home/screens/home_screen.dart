@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:unsplash_app/logic/home/bloc/home_bloc.dart';
 import 'package:unsplash_app/presentation/home/widgets/list_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,10 +18,16 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: ListPhotoWidget(),
-      ),
+      body: BlocConsumer<HomeBloc, HomeState>(listener: (context2, state) {
+        if (state is HomeSuccess) {
+          print(state.list.length);
+        }
+      }, builder: (context2, state) {
+        return Padding(
+          padding: EdgeInsets.all(16.0),
+          child: ListPhotoWidget(),
+        );
+      }),
     );
   }
 }

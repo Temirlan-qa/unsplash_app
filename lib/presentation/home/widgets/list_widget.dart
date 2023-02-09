@@ -16,7 +16,7 @@ class ListPhotoWidget extends StatelessWidget {
             placeholder: (context, url) => CircleAvatar(child: const CircularProgressIndicator()),
             errorWidget: (context, url, error) => const Icon(Icons.error),
             // placeholder: (context, url) => Image.asset("assets/img/placeholder.png",),
-            imageUrl: 'https://picsum.photos/250?image=12',
+            imageUrl: 'https://picsum.photos/250?image=15',
             width: MediaQuery.of(context).size.width - 32,
             height: 102,
             imageBuilder: (context, imageProvider) => Container(
