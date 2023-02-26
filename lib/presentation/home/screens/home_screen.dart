@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:unsplash_app/logic/data/models/gallery_model.dart';
 import 'package:unsplash_app/logic/data/services_api_provider.dart';
@@ -24,7 +25,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Gallery',
+          'Gallery App',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -42,6 +43,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
             );
           }
           else if (snapshot.hasError) {
+            if (kDebugMode) {
+              print(snapshot.error);
+            }
             return Center(
               child: Text('${snapshot.error}'),
             );

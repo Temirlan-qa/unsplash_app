@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:unsplash_app/presentation/photo/screens/photo_screen.dart';
 
 class ListPhotoWidget extends StatelessWidget {
-  final photos;
+  final dynamic photos;
   const ListPhotoWidget({
     Key? key,
     this.photos,
@@ -38,11 +38,11 @@ class ListPhotoWidget extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Column(
                   children: [
                     Align(
-                      alignment: Alignment.topLeft,
+                      alignment: Alignment.bottomLeft,
                       child: Text(
                         photo.author,
                         style: const TextStyle(
@@ -54,10 +54,9 @@ class ListPhotoWidget extends StatelessWidget {
                       height: 16,
                     ),
                     Align(
-                      alignment: Alignment.topLeft,
+                      alignment: Alignment.bottomLeft,
                       child: Text(
                         photo.description,
-                        textAlign: TextAlign.left,
                         style: const TextStyle(
                           fontSize: 20.0,
                         ),
